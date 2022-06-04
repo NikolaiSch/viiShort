@@ -4,9 +4,10 @@
     "description": "",
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
+        "build": "vite build && npm run ts-build",
         "serve": "vite preview",
-        "start": "cd ./src/backend && ts-node ./app.ts"
+        "start": "cd ./out && node ./app.js",
+        "ts-build": "tsc --esModuleInterop true .\\src\\backend\\app.ts --outDir .\\out"
     },
     "license": "MIT",
     "devDependencies": {
