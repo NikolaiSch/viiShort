@@ -72,7 +72,7 @@ async function formSubmit(e: Event) {
         return;
     }
 
-    let response = await fetch("http://localhost:4000/api/slug", {
+    let response = await fetch("./api/slug", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -88,10 +88,7 @@ async function formSubmit(e: Event) {
                     <p>Slug</p>
                     <p>URL</p>
                     <p>Uses</p>
-                    <Copy
-                        toCopy={"http://localhost:3000/" + body.slug}
-                        text={body.slug}
-                    />
+                    <Copy toCopy={"./" + body.slug} text={body.slug} />
                     <a
                         href={body.url}
                         class="underline underline-offset-1 hover:-translate-y-1 transition-all duration-300"

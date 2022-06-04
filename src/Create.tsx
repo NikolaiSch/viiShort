@@ -44,7 +44,7 @@ const Create: Component = () => {
 async function formSubmit(e: Event) {
     e.preventDefault();
 
-    let response = await fetch("http://localhost:4000/api/new", {
+    let response = await fetch("./api/new", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -61,7 +61,7 @@ async function formSubmit(e: Event) {
                     <p>URL</p>
                     <p>Uses</p>
                     <Copy
-                        toCopy={"http://localhost:4000/" + body.slug}
+                        toCopy={`https://viidb.herokuapp.com/${body.slug}`}
                         text={body.slug}
                     ></Copy>
                     <a

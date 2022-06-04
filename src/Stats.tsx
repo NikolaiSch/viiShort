@@ -71,7 +71,7 @@ const Stats: Component = () => {
 };
 
 async function getStats() {
-    let response = await fetch("http://localhost:4000/api/stats", {
+    let response = await fetch("./api/stats", {
         method: "GET",
     });
 

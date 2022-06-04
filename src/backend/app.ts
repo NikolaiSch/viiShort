@@ -29,7 +29,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const port = 4000;
+const port = 3000;
 
 app.post("/api/new", async (req, res) => {
     try {
@@ -138,8 +138,6 @@ app.get("/api/stats", async (_, res) => {
     });
 });
 
-app.listen(port);
-
 let totalLinks: number;
 let totalViews: number;
 let topLinks: link[];
@@ -185,17 +183,11 @@ app.get("/:slug((([a-f]|[0-9]){10}))", async (req, res) => {
     res.redirect(url!.url);
 });
 
-// app.get("/(|stats|create)", (req, res) => {
-//     res.sendFile(path.resolve("./dist/index.html"));
-// });
+app.get("/[stats|create|index]", (req, res) => {
+    res.sendFile(path.resolve("./dist/index.html"));
+});
 
-// app.get("/assets/index.6db35f60.css", (req, res) => {
-//     res.sendFile(path.resolve("./dist/assets/index.6db35f60.css"));
-// });
-
-// app.get("/assets/index.8e18c643.js", (req, res) => {
-//     res.sendFile(path.resolve("./dist/assets/index.8e18c643.js"));
-// });
+app.use(express.static("dist"));
 
 getStats();
 
@@ -203,4 +195,4 @@ setInterval(async () => {
     await getStats();
 }, 1000);
 
-export {};
+app.listen(port);
