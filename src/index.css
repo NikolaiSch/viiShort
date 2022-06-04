@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply bg-blue-600/30 hover:bg-blue-600/50 border border-blue-600/70 px-4 py-1 mx-2 rounded-md transition-all active:translate-y-1 shadow-lg shadow-blue-600/30;
+    }
+}
+
+.t {
+    font-family: "Abel", sans-serif;
+}
