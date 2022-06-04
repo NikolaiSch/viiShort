@@ -28,6 +28,7 @@ function isUrl(string: string) {
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(express.static("./dist"));
 
 const port = 3000;
 
@@ -159,7 +160,6 @@ async function getStats() {
 }
 
 app.get("/:slug((([a-f]|[0-9]){10}))", async (req, res) => {
-    console.log(req.params.slug);
     let url = await prisma.link.findUnique({
         where: {
             slug: req.params.slug,
@@ -186,8 +186,6 @@ app.get("/:slug((([a-f]|[0-9]){10}))", async (req, res) => {
 app.get("/[stats|create|index]", (req, res) => {
     res.sendFile(path.resolve("./dist/index.html"));
 });
-
-app.use(express.static("dist"));
 
 getStats();
 
