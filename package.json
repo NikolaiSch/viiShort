@@ -7,7 +7,7 @@
         "build": "vite build && npm run ts-build",
         "serve": "vite preview",
         "start": "cd ./out && node ./app.js",
-        "ts-build": "tsc --esModuleInterop true ./src/backend/app.ts --outDir ./out"
+        "ts-build": "tsc --esModuleInterop true ./src/express.ts --outDir ./out"
     },
     "license": "MIT",
     "devDependencies": {
@@ -28,6 +28,7 @@
         "solid-app-router": "^0.3.3",
         "solid-icons": "^0.4.12",
         "solid-js": "^1.4.2",
-        "ts-md5": "^1.2.11"
+        "ts-md5": "^1.2.11",
+        "vercel": "^25.0.0"
     }
 }
