@@ -7,7 +7,7 @@
         "build": "vite build",
         "serve": "vite preview",
         "start": "cd ./out && node ./app.js",
-        "ts-build": "tsc --esModuleInterop true ./api/index.ts"
+        "ts-build": "tsc --esModuleInterop true --outDir ./out ./src/express.ts"
     },
     "license": "MIT",
     "devDependencies": {
